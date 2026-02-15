@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VR Villa – Correct Front Orientation</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color: #ECECEC">
+      <!-- SKY -->
+      <a-sky color="#CFE8FF"></a-sky>
+
+      <!-- CAMERA (STARTS IN FRONT OF HOUSE) -->
+      <!-- FRONT = NEGATIVE Z -->
+      <a-entity camera position="0 1.6 -45" look-controls wasd-controls>
+      </a-entity>
+
+      <!-- LIGHTING -->
+      <a-light type="ambient" intensity="0.6"></a-light>
+      <a-light
+        type="directional"
+        position="20 30 -10"
+        intensity="1.2"
+      ></a-light>
+
+      <!-- ===================== -->
+      <!-- GROUND / COMPOUND -->
+      <!-- ===================== -->
+
+      <!-- Grass -->
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="160"
+        height="160"
+        color="#6DBF4B"
+      >
+      </a-plane>
+
+      <!-- DRIVEWAY (IN FRONT OF HOUSE → NEGATIVE Z) -->
+      <a-plane
+        position="-12 0.02 -25"
+        rotation="-90 0 0"
+        width="10"
+        height="30"
+        color="#555"
+      >
+      </a-plane>
+
+      <!-- ===================== -->
+      <!-- HOUSE (CENTER) -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/house.glb)"
+        position="0 0 0"
+        rotation="0 180 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- CAR (PARKED IN FRONT) -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/car.glb)"
+        position="-12 0 -30"
+        rotation="0 0 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- DOG (FRONT LAWN) -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/dog.glb)"
+        position="6 0 -22"
+        rotation="0 180 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- POOL (SIDE OF HOUSE) -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/pool.glb)"
+        position="35 0 0"
+        rotation="0 90 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

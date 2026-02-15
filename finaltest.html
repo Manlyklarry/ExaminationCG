@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VR Villa – DREAM HOUSE</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color: #ECECEC">
+      <!-- SKY -->
+      <a-sky color="#CFE8FF"></a-sky>
+
+      <!-- CAMERA -->
+      <a-entity camera position="0 1.6 -35" look-controls wasd-controls>
+      </a-entity>
+
+      <!-- LIGHTING -->
+      <a-light type="ambient" intensity="0.6"></a-light>
+      <a-light type="directional" position="20 30 -10" intensity="1.2">
+      </a-light>
+
+      <!-- ===================== -->
+      <!-- GROUND -->
+      <!-- ===================== -->
+
+      <!-- Grass -->
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="160"
+        height="160"
+        color="#6DBF4B"
+      >
+      </a-plane>
+
+      <!-- Driveway -->
+      <a-plane
+        position="-12 0.02 -25"
+        rotation="-90 0 0"
+        width="10"
+        height="30"
+        color="#555"
+      >
+      </a-plane>
+
+      <!-- ===================== -->
+      <!-- REGISTRATION NUMBER -->
+      <!-- ===================== -->
+      <a-text
+        value="PS/CSC/22/0053"
+        position="0 0.03 -15"
+        rotation="-90 0 0"
+        align="center"
+        color="#000000"
+        width="40"
+        font="mozillavr"
+        anchor="center"
+      >
+      </a-text>
+
+      <!-- ===================== -->
+      <!-- HOUSE -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/house.glb)"
+        position="0 0 0"
+        rotation="0 180 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- INTERIOR -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/interior.glb)"
+        position="0 0.08 0"
+        rotation="0 180 0"
+        scale="0.9 0.9 0.9"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- CAR -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/car.glb)"
+        position="-12 0 -30"
+        rotation="0 0 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- DOG -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/dog.glb)"
+        position="6 0 -22"
+        rotation="0 180 0"
+        scale="1 1 1"
+        animation="property: rotation;
+                   from: 0 160 0;
+                   to: 0 200 0;
+                   dir: alternate;
+                   dur: 4000;
+                   easing: easeInOutQuad;
+                   loop: true"
+      >
+      </a-entity>
+
+      <!-- ===================== -->
+      <!-- POOL -->
+      <!-- ===================== -->
+      <a-entity
+        gltf-model="url(assets/pool.glb)"
+        position="35 0 0"
+        rotation="0 90 0"
+        scale="1 1 1"
+      >
+      </a-entity>
+
+      <!-- WATER EFFECT -->
+      <a-plane
+        position="35 0.12 0"
+        rotation="-90 0 0"
+        width="8"
+        height="4"
+        color="#1CA3EC"
+        material="opacity: 0.7; transparent: true"
+        animation="property: material.opacity;
+                   from: 0.6;
+                   to: 0.85;
+                   dir: alternate;
+                   dur: 2000;
+                   easing: easeInOutSine;
+                   loop: true"
+      >
+      </a-plane>
+    </a-scene>
+  </body>
+</html>
